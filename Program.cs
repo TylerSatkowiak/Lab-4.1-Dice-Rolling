@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Reflection.Metadata.Ecma335;
 
 namespace Lab_4._1_Dice_Rolling
@@ -9,12 +9,11 @@ namespace Lab_4._1_Dice_Rolling
         {
             CrapsGame();
         }
-
         static int DiceRoll(int d1)
         {
             //Method that creates a random number between 1 and the number entered. Returns a value between 1 and d1
             Random random = new Random();
-            int result =random.Next(1, d1+1);
+            int result = random.Next(1, d1 + 1);
             return result;
         }
 
@@ -29,6 +28,52 @@ namespace Lab_4._1_Dice_Rolling
             }
         }
 
+        static void RollCall(int printout)
+        {
+            if (printout == 1)
+            {
+                Console.WriteLine(" _____");
+                Console.WriteLine("|     |");
+                Console.WriteLine("|  o  |");
+                Console.WriteLine("|_____|");
+            }
+            if (printout == 2)
+            {
+                Console.WriteLine(" _____");
+                Console.WriteLine("|    o|");
+                Console.WriteLine("|     |");
+                Console.WriteLine("|o____|");
+            }
+            if (printout == 3)
+            {
+                Console.WriteLine(" _____");
+                Console.WriteLine("|    o|");
+                Console.WriteLine("|  o  |");
+                Console.WriteLine("|o____|");
+            }
+            if (printout == 4)
+            {
+                Console.WriteLine(" _____");
+                Console.WriteLine("|o   o|");
+                Console.WriteLine("|     |");
+                Console.WriteLine("|o___o|");
+            }
+            if (printout == 5)
+            {
+                Console.WriteLine(" _____");
+                Console.WriteLine("|o   o|");
+                Console.WriteLine("|  o  |");
+                Console.WriteLine("|o___o|");
+            }
+            if (printout == 6)
+            {
+                Console.WriteLine(" _____");
+                Console.WriteLine("|o   o|");
+                Console.WriteLine("|o   o|");
+                Console.WriteLine("|o___o|");
+            }
+        }
+
         static void CrapsGame()
         {
             //Declare variables, all running through loop to continue/exit when prompted.
@@ -39,7 +84,7 @@ namespace Lab_4._1_Dice_Rolling
                 //Take input, convert to int and reference it twice when sending to Random method.
                 count++;
                 Console.WriteLine("Welcome to the Grand Circus Casino!");
-                Console.WriteLine("How many sides should each die have?");
+                Console.WriteLine("How many sides should each die(2) have?");
                 string entry = Console.ReadLine();
                 int game = int.Parse(entry);
 
@@ -51,8 +96,8 @@ namespace Lab_4._1_Dice_Rolling
                     int roll2 = DiceRoll(game);
                     int total = roll1 + roll2;
                     Console.WriteLine($"Your first roll:{roll1}  Your second roll:{roll2}  Your total is {total} ");
-
-
+                    RollCall(roll1);
+                    RollCall(roll2);
                     //Here are the possible results of the craps game
                     if (total == 2 || total == 3 || total == 12)
                     {
